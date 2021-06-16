@@ -28,9 +28,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.d(TAG, "onCreate: 1")
         button = findViewById(R.id.button)
         button2 = findViewById(R.id.button2)
         button3 = findViewById(R.id.button3)
+        Log.d(TAG, "onCreate: 2")
         if (ActivityCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.RECORD_AUDIO
@@ -65,8 +67,8 @@ class MainActivity : AppCompatActivity() {
         button2.isEnabled = false
         button.setOnClickListener {
             mr.setAudioSource(MediaRecorder.AudioSource.MIC)
-        /*    mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-            mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)*/
+            /*    mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
+                mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)*/
             mr.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
             mr.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
